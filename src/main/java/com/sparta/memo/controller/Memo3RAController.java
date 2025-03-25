@@ -27,6 +27,11 @@ public class Memo3RAController {
         return memoService.getMemos();
     }
 
+    @GetMapping("/memos/contents")
+    public List<MemoResponseDto> getMemosByKeyword(@RequestParam String keyword) {
+        return memoService.getMemosByKeyword(keyword);
+    }
+
     @PutMapping("/memos/{id}")
     public Long updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto) {
         return memoService.updateMemo(id, requestDto);
@@ -36,4 +41,6 @@ public class Memo3RAController {
     public Long deleteMemo(@PathVariable Long id) {
         return memoService.deleteMemo(id);
     }
+
+
 }
